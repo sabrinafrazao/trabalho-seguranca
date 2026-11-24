@@ -1,0 +1,5 @@
+# Arquivos de exemplo devem manter os bytes exatos (hash/assinatura dependem disso).
+exemplos/certificado_ficticio.txt -text
+*.sig binary
+*.sha256 -text
+*.sh text eol=lf
