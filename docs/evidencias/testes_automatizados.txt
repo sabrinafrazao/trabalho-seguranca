@@ -1,0 +1,42 @@
+# Execução: python -m pytest -v  (2026-11-25 22:03)
+============================= test session starts =============================
+platform win32 -- Python 3.14.7, pytest-9.2.0, pluggy-1.7.0 -- C:\Python314\python.exe
+rootdir: C:\Users\sabri\Desktop\Seguranca\trabalho-seguranca
+collecting ... collected 34 items
+
+tests/test_adicionais.py::test_sha256_vetor_fips_abc PASSED              [  2%]
+tests/test_adicionais.py::test_sha256_arquivo_vazio PASSED               [  5%]
+tests/test_adicionais.py::test_ed25519_vetor_rfc8032_teste1 PASSED       [  8%]
+tests/test_adicionais.py::test_leitura_binaria_sem_normalizacao PASSED   [ 11%]
+tests/test_adicionais.py::test_arquivo_binario_qualquer PASSED           [ 14%]
+tests/test_adicionais.py::test_check_aceita_referencia_maiuscula PASSED  [ 17%]
+tests/test_adicionais.py::test_check_hash_referencia_malformado PASSED   [ 20%]
+tests/test_adicionais.py::test_check_hash_diferente PASSED               [ 23%]
+tests/test_adicionais.py::test_assinatura_com_um_bit_alterado PASSED     [ 26%]
+tests/test_adicionais.py::test_assinatura_de_outro_documento PASSED      [ 29%]
+tests/test_adicionais.py::test_assinatura_com_tamanho_invalido[0] PASSED [ 32%]
+tests/test_adicionais.py::test_assinatura_com_tamanho_invalido[63] PASSED [ 35%]
+tests/test_adicionais.py::test_assinatura_com_tamanho_invalido[65] PASSED [ 38%]
+tests/test_adicionais.py::test_assinatura_com_tamanho_invalido[128] PASSED [ 41%]
+tests/test_adicionais.py::test_arquivo_inexistente[hash] PASSED          [ 44%]
+tests/test_adicionais.py::test_arquivo_inexistente[check] PASSED         [ 47%]
+tests/test_adicionais.py::test_arquivo_inexistente[sign] PASSED          [ 50%]
+tests/test_adicionais.py::test_arquivo_inexistente[verify] PASSED        [ 52%]
+tests/test_adicionais.py::test_caminho_e_diretorio PASSED                [ 55%]
+tests/test_adicionais.py::test_keygen_diretorio_destino_inexistente PASSED [ 58%]
+tests/test_adicionais.py::test_keygen_nao_sobrescreve_sem_force PASSED   [ 61%]
+tests/test_adicionais.py::test_keygen_mesmo_caminho PASSED               [ 64%]
+tests/test_adicionais.py::test_sign_com_chave_publica_no_lugar_da_privada PASSED [ 67%]
+tests/test_adicionais.py::test_verify_com_chave_privada_no_lugar_da_publica PASSED [ 70%]
+tests/test_adicionais.py::test_chave_de_outro_algoritmo_rsa PASSED       [ 73%]
+tests/test_adicionais.py::test_chave_corrompida PASSED                   [ 76%]
+tests/test_adicionais.py::test_comando_desconhecido_ou_argumentos_faltando PASSED [ 79%]
+tests/test_adicionais.py::test_interoperabilidade_openssl PASSED         [ 82%]
+tests/test_minimos.py::test_TI01_calcular_sha256 PASSED                  [ 85%]
+tests/test_minimos.py::test_TI02_arquivo_modificado_diverge_do_hash_original PASSED [ 88%]
+tests/test_minimos.py::test_TI03_gerar_par_de_chaves_pem_validas PASSED  [ 91%]
+tests/test_minimos.py::test_TI04_assinar_e_verificar_original PASSED     [ 94%]
+tests/test_minimos.py::test_TI05_alterar_arquivo_apos_assinatura PASSED  [ 97%]
+tests/test_minimos.py::test_TI06_verificar_com_outra_chave_publica PASSED [100%]
+
+============================= 34 passed in 8.72s ==============================
