@@ -1,0 +1,35 @@
+# Execução: sh exemplos/demo.sh  (2026-11-22 11:29)
+
+=== 1. keygen ===
+Par de chaves Ed25519 gerado com sucesso.
+  Chave privada (PEM PKCS#8):               privada.pem
+  Chave pública (PEM SubjectPublicKeyInfo): publica.pem
+ATENÇÃO: mantenha a chave privada em sigilo.
+
+=== 2. hash ===
+a100c4f56d1d51e67578a010cd0146785bb167dbbc7546190875a9ad99166518
+
+=== 3. check (original) ===
+Hash calculado:  a100c4f56d1d51e67578a010cd0146785bb167dbbc7546190875a9ad99166518
+Hash referência: a100c4f56d1d51e67578a010cd0146785bb167dbbc7546190875a9ad99166518
+RESULTADO: OK - o hash corresponde à referência (integridade confirmada).
+codigo de saida: 0
+
+=== 4. sign ===
+Arquivo assinado com sucesso. Assinatura (64 bytes) gravada em: doc.sig
+
+=== 5. verify (original) ===
+RESULTADO: ASSINATURA VÁLIDA - o arquivo é íntegro e foi assinado pela chave privada correspondente.
+codigo de saida: 0
+
+=== 6. adulterando o documento (60 -> 600 horas) ===
+
+=== 7. check (adulterado) ===
+Hash calculado:  3eaa5e4c6e954300cb1ae38bcabcd4a1d05fb7ce521629dceec94e2ddcba6f94
+Hash referência: a100c4f56d1d51e67578a010cd0146785bb167dbbc7546190875a9ad99166518
+RESULTADO: FALHA - o hash NÃO corresponde à referência (arquivo divergente).
+codigo de saida: 1
+
+=== 8. verify (adulterado) ===
+RESULTADO: ASSINATURA INVÁLIDA - o arquivo foi alterado, a assinatura não corresponde ou a chave pública não é a do signatário.
+codigo de saida: 1

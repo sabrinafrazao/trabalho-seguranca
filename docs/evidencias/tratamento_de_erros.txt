@@ -1,0 +1,45 @@
+# Evidências de tratamento de erros (2026-11-22 11:29)
+
+$ seguranca hash nao_existe.txt
+ERRO: Arquivo não encontrado: 'nao_existe.txt'.
+codigo de saida: 2
+
+$ seguranca hash exemplos
+ERRO: Arquivo 'exemplos' é um diretório, não um arquivo.
+codigo de saida: 2
+
+$ seguranca check exemplos/certificado_ficticio.txt abc123
+ERRO: Hash de referência inválido: esperado SHA-256 com 64 caracteres hexadecimais (recebido 6 caractere(s)).
+codigo de saida: 2
+
+$ seguranca verify exemplos/certificado_ficticio.txt exemplos/chave_publica_exemplo.pem exemplos/certificado_ficticio.txt
+ERRO: Arquivo de assinatura 'exemplos/certificado_ficticio.txt' tem 352 bytes; uma assinatura Ed25519 deve ter exatamente 64 bytes.
+codigo de saida: 2
+
+$ seguranca sign exemplos/certificado_ficticio.txt exemplos/chave_publica_exemplo.pem /tmp/x.sig
+ERRO: 'exemplos/chave_publica_exemplo.pem' contém uma chave PÚBLICA; o comando exige a chave privada (PEM PKCS#8).
+codigo de saida: 2
+
+$ seguranca verify exemplos/certificado_ficticio.txt exemplos/certificado_ficticio.txt exemplos/certificado_ficticio.sig
+ERRO: 'exemplos/certificado_ficticio.txt' não é uma chave pública PEM SubjectPublicKeyInfo válida.
+codigo de saida: 2
+
+$ seguranca verify exemplos/certificado_ficticio.txt exemplos/chave_publica_exemplo.pem exemplos/certificado_ficticio.sig
+RESULTADO: ASSINATURA VÁLIDA - o arquivo é íntegro e foi assinado pela chave privada correspondente.
+codigo de saida: 0
+
+
+# Casos adicionados após a revisão do comando sign (2026-11-26 19:27)
+
+$ seguranca sign doc.txt privada.pem doc.txt
+ERRO: O arquivo de assinatura 'doc.txt' é o mesmo arquivo que está sendo assinado; escolha outro destino para não destruir o documento.
+codigo de saida: 2
+
+$ seguranca sign doc.txt privada.pem privada.pem
+ERRO: O arquivo de assinatura 'privada.pem' é o mesmo da chave privada; escolha outro destino.
+codigo de saida: 2
+
+$ seguranca sign doc.txt privada.pem doc.sig   (assinatura já existe)
+ERRO: Arquivo de assinatura 'doc.sig' já existe. Use --force para sobrescrever.
+codigo de saida: 2
+
